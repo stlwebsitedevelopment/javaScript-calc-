@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>javaScript calculator</title>
+  </head>
+  <style>
+  html, body{
+ height: 100%;
+overflow:hidden;
+}
+
+body {
+
+ display: flex;
+flex-direction:column;
+align-items: center;
+justify-content:center;
+width:100%;
+background: rgba(103,12,240,1);
+background: -moz-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(103,12,240,1)), color-stop(12%, rgba(103,12,240,1)), color-stop(100%, rgba(14,32,235,1)));
+background: -webkit-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: -o-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: -ms-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: linear-gradient(to right, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+overflow:hidden;
+}
+
+svg {
+position:fixed;
+top:7%;
+left:5%;
+height:60px;
+}
+
+.display{
+padding-top:30%;
+margin:auto;
+display:block;
+}
+
+}
+.cls-2:hover,.cls-1:hover{
+stroke:#000 !important;
+}
+.logo{
+height: 0px;
+opacity:.5;
+
+}
+.info {
+width: 50%;
+margin-left: 20px;
+float:left;
+display:block;
+position: absolute;
+padding-top:20px;
+
+}
+
+h1, p {
+font-family: 'Comfortaa', cursive;
+color: #000;
+opacity:.7;
+float: left;
+padding: none;
+}
+
+h1 {
+font-size: 45px;
+text-align:;
+line-height:1px;
+
+}
+
+p {
+line-height: 1%;
+font-size: 14px;
+
+}
+.console {
+height:470px;
+width:260px;
+border-radius: 10px;
+display:block;
+filter: drop-shadow(16px 16px 20px black);
+}
+.console {
+background: rgba(20,20,20,1);
+background: -moz-linear-gradient(45deg, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(20,20,20,1)), color-stop(100%, rgba(0,0,0,1)));
+background: -webkit-linear-gradient(45deg, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(45deg, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+background: -ms-linear-gradient(45deg, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+background: linear-gradient(45deg, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+
+
+input {
+background:transparent;
+font-size:48px;
+text-align:center;
+color: #fff;
+opacity:.8;
+border:none;
+}
+
+
+.screen {
+width: inherit;
+height: 170px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.screen {
+background: rgba(103,12,240,1);
+background: -moz-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(103,12,240,1)), color-stop(12%, rgba(103,12,240,1)), color-stop(100%, rgba(14,32,235,1)));
+background: -webkit-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: -o-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: -ms-linear-gradient(left, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+background: linear-gradient(to right, rgba(103,12,240,1) 0%, rgba(103,12,240,1) 12%, rgba(14,32,235,1) 100%);
+}
+
+.btn1 {
+float:left;
+height: 60px;
+width: 25%;
+color:#fff;
+background:transparent;
+border: 0 none;
+font-size: 20px;
+opacity: 0.7;
+}
+
+.btn1.right {
+border-bottom-right-radius:10px;
+opacity: 1 !important;
+-webkit-animation: neon3 3.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 3.5s ease-in-out infinite alternate;
+  animation: neon3 3.5s ease-in-out infinite alternate;
+}
+.btn1.light {
+ -webkit-animation: neon3 3.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 3.5s ease-in-out infinite alternate;
+  animation: neon3 3.5s ease-in-out infinite alternate;
+}
+
+.btn2 {
+float:left;
+height: 60px;
+width: 50%;
+color:#000;
+background:transparent;
+border: 0 none;
+border-bottom-left-radius:10px;
+font-size:20px;
+color: #fff;
+opacity: .7;
+}
+
+.btn1:active,.btn2:active {
+opacity: 1!important;
+border: 0 none!important;
+}
+
+.btn1:hover,.btn2:hover {
+background:rgba(255,255,255,.70);
+color: #000;
+}
+
+-webkit-keyframes neon3 {
+from {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px   #fff, 0 0 120px #fff, 0 0 140px #fff,
+}
+to {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 35px   #fff, 0 0 70px #fff, 0 0
+}
+}
+
+
+@-moz-keyframes neon3 {
+
+from {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px   #fff, 0 0 140px #fff,
+}
+to {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 35px   #fff, 0 0
+}
+}
+
+@keyframes neon3 {
+from {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px   #fff, 0 0 140px #fff,
+}
+to {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 35px   #fff, 0 0
+}
+}
+  </style>
+  <body>
+
+<div class="console">
+  <form name ="cal">
+  <div class="screen">
+    <div class="display"><input type="text" size="8" align="center" id="display" name="answer" readonly/></div>
+  </div>
+<div class="column 1">
+    <input type="button" value="C" class="btn1 light" onclick="cal.answer.value = ''"/>
+    <input type="button" value="%" class="btn1 light" onclick="cal.answer.value /= '100'"/>
+    <input type="button" value="÷" class="btn1 light" onclick="cal.answer.value += '/'"/>
+    <input type="button" value="×" class="btn1 light" onclick="cal.answer.value += '*'"/>
+</div>
+  <div class="column 2">
+    <input type="button" value="7" class="btn1" onclick="cal.answer.value += '7'"/>
+    <input type="button" value="8" class="btn1" onclick="cal.answer.value += '8'"/>
+    <input type="button" value="9" class="btn1" onclick="cal.answer.value += '9'"/>
+    <input type="button" value="±" class="btn1 light" onclick="cal.answer.value += '+/-'"/>
+  </div>
+  <div class="column 3">
+    <input type="button" value="4" class="btn1" onclick="cal.answer.value += '4'"/>
+    <input type="button" value="5" class="btn1" onclick="cal.answer.value += '5'"/>
+    <input type="button" value="6" class="btn1" onclick="cal.answer.value += '6'"/>
+    <input type="button" value="-" class="btn1 light" onclick="cal.answer.value += '-'"/>
+  </div>
+  <div class="column 4">
+    <input type="button" value="1" class="btn1" onclick="cal.answer.value += '1'"/>
+    <input type="button" value="2" class="btn1" onclick="cal.answer.value += '2'"/>
+    <input type="button" value="3" class="btn1" onclick="cal.answer.value += '3'"/>
+    <input type="button" value="+" class="btn1 light" onclick="cal.answer.value += '+'"/>
+
+  </div>
+  <div class="column five">
+    <input type="button" value="0" class="btn2 left" onclick="cal.answer.value += '0'"/>
+    <input type="button" value="." class="btn1" onclick="cal.answer.value += '.'"/>
+    <input type="button" value="=" class="btn1 right" onclick="cal.answer.value = eval(cal.answer.value)"/>
+  </div>
+  </form>
+</div>
+  </body>
+</html>
